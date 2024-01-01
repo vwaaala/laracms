@@ -3,22 +3,14 @@
 namespace Database\Seeders;
 
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // deleting role table data
-        Role::truncate();
+        $roles = [['name' => 'admin',], ['name' => 'editor',], ['name' => 'author'],];
 
-        // fresh role
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'editor']);
-        Role::create(['name' => 'author']);
+        Role::insert($roles);
     }
 }
